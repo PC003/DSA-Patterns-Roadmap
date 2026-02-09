@@ -5,12 +5,40 @@
 
 ## DSA Patterns and Practice Questions
 
-## 1. Fast and Slow Pointer
+# 1. Fast and Slow Pointer
 | Problem |
 |---------|
 | Linked List Cycle II |
 | Remove nth Node from the End of List |
-| Find the Duplicate Number |
+
+## 3. Find the Duplicate Number  ✨
+**Technique:** Fast and Slow Pointer (Floyd’s Cycle Detection)
+
+---
+
+### 🧠 Pseudocode
+
+```text
+slow ← nums[0]
+fast ← nums[0]
+
+do
+    slow ← nums[slow]
+    fast ← nums[nums[fast]]
+while slow ≠ fast
+
+slow ← nums[0]
+
+while slow ≠ fast
+    slow ← nums[slow]
+    fast ← nums[fast]
+
+return slow
+```
+
+<img width="454" height="942" alt="image" src="https://github.com/user-attachments/assets/430dbab8-7943-4e42-9308-fa7d42e432a5" />
+
+
 | Palindrome Linked List |
 
 ## 2. Overlapping Intervals
