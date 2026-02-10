@@ -6,11 +6,32 @@
 ## DSA Patterns and Practice Questions
 
 # 1. Fast and Slow Pointer
-| Problem |
-|---------|
-| Linked List Cycle II |
-| Remove nth Node from the End of List |
 
+## 1. Linked List Cycle II 
+```text
+🧠 Idea
+
+Detect whether a cycle exists in the linked list using two pointers.
+If a cycle is found:
+Reset slow to head.
+Move both slow and fast one step at a time (->next).
+The node where both pointers meet again is the starting node of the cycle.
+Return that node.
+```
+
+## **2. Remove Nth Node from the End of List**
+### **Apporach-1**
+```text
+1.Calculate Total lenth of LL
+2.Go to l-n node
+3.Break the link
+```
+### **Apporach-2**
+```text
+1.slow,fast -> take fast pointer n time ahead
+2.While fast->next is not null go to next node for slow 
+3.Break the link
+```
 ## 3. Find the Duplicate Number  ✨
 **Technique:** Fast and Slow Pointer (Floyd’s Cycle Detection)
 
@@ -39,7 +60,19 @@ return slow
 <img width="454" height="942" alt="image" src="https://github.com/user-attachments/assets/430dbab8-7943-4e42-9308-fa7d42e432a5" />
 
 
-| Palindrome Linked List |
+## 4.**Palindrome Linked List** ##
+### **Apporach-1**
+```text
+1.Take a vector store all the LL
+2.one pointer from 0 another from size-1
+3.check they are equal or not if not return false
+```
+### **Apporach-2**
+```text
+1.slow,fast -> take fast pointer 2 step ahead until it become null (slow 1 step ahead ,reaches to mid)
+2.reveres the linked list form slow to end (using prev,curr,next pointers)
+3.Travers and check for each node in both LL
+```
 
 ## 2. Overlapping Intervals
 | Problem |
