@@ -74,10 +74,33 @@ return slow
 3.Travers and check for each node in both LL
 ```
 
-## 2. Overlapping Intervals
-| Problem |
-|---------|
-| Merge Intervals |
+# 2. Overlapping Intervals
+
+## **2.1 Merge Intervals** 
+```text
+        1.sort 
+        sort(intervals.begin(),intervals.end());
+        vector<vector<int>>ans;
+
+        //2.assginging ans with first element
+        ans.push_back(intervals[0]);
+
+         [[1,4],[2,3]] ->tricky case
+
+        for(int i=1;i<intervals.size();i++){
+            vector<int>temp;
+            //used vector.back()
+            if(ans.back()[1]>= intervals[i][0]){
+                //max of previous 1 st element and curr 0th element
+                ans.back()[1]=(max(intervals[i][1],ans.back()[1]));
+            }else{
+                temp.push_back(intervals[i][0]);
+                temp.push_back(intervals[i][1]);
+                ans.push_back(temp);
+            }
+        }
+        return ans;        
+```
 | Insert Interval |
 | My Calendar II |
 | Minimum Number of Arrows to Burst Balloons |
