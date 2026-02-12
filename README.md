@@ -101,10 +101,23 @@ return slow
         }
         return ans;        
 ```
-| Insert Interval |
-| My Calendar II |
-| Minimum Number of Arrows to Burst Balloons |
-| Non-overlapping Intervals |
+
+## **2.2 Insert Interval**
+### **Apporach-1**
+```text
+1.Add newInterval at begining and sort the interval
+2.Apply Merge interval directly 
+Here Problem is it will be O(nlog n) it can be optimized.....
+```
+### **Apporach-2**
+```text
+1.Optimization required ......
+```
+
+## **2.2 My Calendar II**
+## **2.3 Minimum Number of Arrows to Burst Balloons**
+## **2.4 Non-overlapping Intervals**
+
 
 ## 3. Prefix Sum
 | Problem |
