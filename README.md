@@ -32,7 +32,7 @@ Return that node.
 2.While fast->next is not null go to next node for slow 
 3.Break the link
 ```
-## 3. Find the Duplicate Number  ✨
+## 3. Find the Duplicate Number  ✨✨✨✨✨
 **Technique:** Fast and Slow Pointer (Floyd’s Cycle Detection)
 
 ---
@@ -76,7 +76,7 @@ return slow
 
 # 2. Overlapping Intervals
 
-## **2.1 Merge Intervals** 
+## **2.1 Merge Intervals** ✨✨✨✨✨
 ```text
         1.sort 
         sort(intervals.begin(),intervals.end());
@@ -102,7 +102,7 @@ return slow
         return ans;        
 ```
 
-## **2.2 Insert Interval**
+## **2.2 Insert Interval** ✨✨✨✨
 ### **Apporach-1**
 ```text
 1.Add newInterval at begining and sort the interval
@@ -114,18 +114,79 @@ Here Problem is it will be O(nlog n) it can be optimized.....
 1.Optimization required ......
 ```
 
-## **2.2 My Calendar II**
+## **2.2 My Calendar II**✨✨
+```text
+1. Iterate over all and if not overlap store
+// overlap condition
+if (startTime < it[1] && endTime > it[0]) {
+    return false;
+ }
+3.Store ans.push_back({stTime,endTIme})
+```
 ## **2.3 Minimum Number of Arrows to Burst Balloons**
 ## **2.4 Non-overlapping Intervals**
 
 
 ## 3. Prefix Sum
-| Problem |
-|---------|
-| Find the middle index in array |
-| Product of array except self |
-| Maximum product subarray |
-| Number of ways to split array |
+## **3.1 Find the middle index in array**
+```text
+1. Maintain prefix sum array -> sum[i]=sum[i-1]+nums[i-1];
+2.Make appropiate condition like ( if(sum[i]== total-nums[i]-sum[i]) return i )
+3.return i or -1 
+```
+
+## **3.2 Product of array except self**
+```text
+1.create prefix ans suffix multiplication vector
+2.prfix[i]=nums[i-1]*prefix[i-1] i=1 to n 
+3.suffix[i]=nums[i+1]*suffix[i+1] i=n-2 to 0
+4.ans will be prefix[i]*suffix[i]
+```
+## **3.2 Maximum product subarray**✨✨✨✨
+
+### **Apporach-1**
+```text
+This give TLE ->
+int n=nums.size();
+        vector<vector<int>>dp(n,vector<int>(n,0));
+        int ans=INT_MIN;
+        for(int i=0;i<n;i++){
+            dp[i][i]=nums[i];
+            ans=max(ans,dp[i][i]);
+        }
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                dp[i][j]=nums[j]*dp[i][j-1];
+                 ans=max(ans,dp[i][j]);
+            }
+        }
+        return ans;
+```
+### **Apporach-2**✨✨✨✨
+```text
+int maxProd=nums[0];
+        int minProd=nums[0];
+        int ans=nums[0];
+        int n=nums.size();
+        for(int i=1;i<n;i++){
+            if(nums[i]<0){
+                swap(maxProd,minProd);
+            }
+
+            maxProd=max(nums[i],nums[i]*maxProd);
+            minProd=min(nums[i],nums[i]*minProd);
+
+            ans=max(maxProd,ans);
+        }
+        return ans;
+```
+## **3.2  Number of ways to split array**
+```text
+1.create prefix ans suffix multiplication vector
+2.prfix[i]=nums[i-1]+prefix[i-1] i=1 to n 
+3.suffix[i]=nums[i+1]+suffix[i+1] i=n-2 to 0
+4.ans will be pre[i]+nums[i]>=suf[i] cnt++
+```
 | Range Sum Query 2D |
 
 ## 4. Sliding Window
