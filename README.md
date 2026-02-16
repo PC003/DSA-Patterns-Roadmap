@@ -190,14 +190,30 @@ int maxProd=nums[0];
 | Range Sum Query 2D |
 
 ## 4. Sliding Window
-| Category | Problem |
-|----------|---------|
-| Fixed Size | Maximum Sum Subarray of Size K |
+## **Fixed Size** 
+
+## **4.1  Maximum Sum Subarray of Size K**
+```text
+1. intial l,total=0,0 res=float("inf")
+2.using for loop add the element to total till total < target
+3.when it become >= target calculate size r-l+1 and subtract nums[l] from target
+4.then inc l till total >=target
+
+for r in range(len(nums)):
+total+=nums[r]
+ while total>= target:
+res=min(res,r-l+1)
+total-=nums[l]
+l+=1
+return 0 if res==float("inf") else res
+```
+
 | | Number of Subarrays having Average Greater or Equal to Threshold |
 | | Repeated DNA sequences |
 | | Permutation in String |
 | | Sliding Subarray Beauty |
 | | Sliding Window Maximum |
+
 | Variable Size | Longest Substring Without Repeating Characters |
 | | Minimum Size Subarray Sum |
 | | Subarray Product Less Than K |
