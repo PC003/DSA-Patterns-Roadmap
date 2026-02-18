@@ -259,8 +259,15 @@ for x,y in freq_count.items():
         ans.append(x)
 return ans
 ```
-| |  |
-| | Permutation in String |
+## **4.2 Permutation in String**✨✨
+```text
+ #if len(s1)>len(s2) then directly false
+#So all permutaion mean no of occurencec should be same so can use dict ormap
+#make dict for s1 string character and use window of size s1 
+#upate the dict every time after sliding window then dec count of s2[i-n] if its occurences become zero pop it 
+# if dict matches then true else it is false at end , 
+```
+
 | | Sliding Subarray Beauty |
 | | Sliding Window Maximum |
 
