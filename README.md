@@ -207,9 +207,59 @@ total-=nums[l]
 l+=1
 return 0 if res==float("inf") else res
 ```
+## **4.2  Number of Subarrays having Average Greater or Equal to Threshold**✨✨✨✨
+```text
+ans = 0
+window_sum = 0
+target = k * threshold
 
-| | Number of Subarrays having Average Greater or Equal to Threshold |
-| | Repeated DNA sequences |
+# first window
+for i in range(k):
+    window_sum += arr[i]
+
+if window_sum >= target:
+    ans += 1
+
+# sliding window
+for i in range(k, len(arr)):
+    window_sum += arr[i]
+    window_sum -= arr[i - k]
+
+    if window_sum >= target:
+        ans += 1
+
+return ans
+```
+## **4.2 Repeated DNA sequences**✨✨
+```text
+# 10-letter-long sequences (substrings)  window size
+#occur more than once in a DNA molecule -> map to stor all substing if
+# same increse count by one
+freq_count={}
+ans=[]
+#edge case if len(s)<10
+if len(s)<10:
+    return ans
+st=s[:10]
+if st in freq_count:
+    freq_count[st] += 1
+else:
+    freq_count[st] = 1
+for i in range(10,len(s)):
+    new_st=st[1:]+s[i]
+    if new_st in freq_count:
+        freq_count[new_st] += 1
+    else:
+        freq_count[new_st] = 1
+    st=new_st
+
+
+for x,y in freq_count.items():
+    if y>1:
+        ans.append(x)
+return ans
+```
+| |  |
 | | Permutation in String |
 | | Sliding Subarray Beauty |
 | | Sliding Window Maximum |
