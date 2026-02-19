@@ -259,7 +259,7 @@ for x,y in freq_count.items():
         ans.append(x)
 return ans
 ```
-## **4.2 Permutation in String**✨✨
+## **4.3 Permutation in String**✨✨
 ```text
  #if len(s1)>len(s2) then directly false
 #So all permutaion mean no of occurencec should be same so can use dict ormap
@@ -267,8 +267,41 @@ return ans
 #upate the dict every time after sliding window then dec count of s2[i-n] if its occurences become zero pop it 
 # if dict matches then true else it is false at end , 
 ```
+## **4.4 Sliding Subarray Beauty**✨✨
+```text
+  freq = defaultdict(int)
+        ans = []
+        n = len(nums)
 
-| | Sliding Subarray Beauty |
+        # first window
+        for i in range(k):
+            freq[nums[i]] += 1
+
+        def get_beauty():
+            count = 0
+            for v in range(-50, 0):
+                count += freq[v]
+                if count >= x:
+                    return v
+            return 0
+
+        ans.append(get_beauty())
+
+        # sliding window
+        for i in range(k, n):
+            # remove outgoing element
+            freq[nums[i-k]] -= 1
+            if freq[nums[i-k]] == 0:
+                del freq[nums[i-k]]
+
+            # add incoming element
+            freq[nums[i]] += 1
+
+            ans.append(get_beauty())
+
+        return ans
+```
+
 | | Sliding Window Maximum |
 
 | Variable Size | Longest Substring Without Repeating Characters |
