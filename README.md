@@ -313,10 +313,18 @@ return ans
 | | Minimum Window Substring |
 
 ## 5. Two Pointers
-| Problem |
-|---------|
-| Two Sum II - Input Array is Sorted |
-| Dutch National Flag: Sort Colors |
+## **5.1 Two Sum II - Input Array is Sorted**✨✨
+```text
+# Have two pointer left and right l=0,r=n-1
+# sum=num[left]+num[right]
+# if sum==target thats the answer ,sum<target ->l++ else r--
+```
+## **5.1 Dutch National Flag: Sort Colors**✨✨
+```text
+# Just count the 0 ,1,2 
+# then put in ans vector like number of 0s then 1s then 2s
+```
+
 | Next Permutation |
 | Bag of Tokens |
 | Container with most water |
