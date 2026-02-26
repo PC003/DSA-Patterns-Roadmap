@@ -319,15 +319,15 @@ return ans
 # sum=num[left]+num[right]
 # if sum==target thats the answer ,sum<target ->l++ else r--
 ```
-## **5.1 Dutch National Flag: Sort Colors**✨✨
-```text
-# Just count the 0 ,1,2 
-# then put in ans vector like number of 0s then 1s then 2s
-```
-
 | Next Permutation |
 | Bag of Tokens |
-| Container with most water |
+## **5.4 Container with most water**✨✨
+```text
+# Have two pointer left and right l=0,r=n-1
+# int w=min(height[l],height[r]); area=max(area,w*(r-l));
+# if height[l]<=height[r] ,l++, else r--
+```
+|  |
 | Trapping Rain Water |
 
 ## 6. Cyclic Sort (Index-Based)
